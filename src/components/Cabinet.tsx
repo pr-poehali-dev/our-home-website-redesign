@@ -9,8 +9,6 @@ import Icon from '@/components/ui/icon';
 
 export default function Cabinet() {
   const [meterReadings, setMeterReadings] = useState({
-    coldWater: '',
-    hotWater: '',
     electricity: '',
     address: '',
     phone: ''
@@ -26,7 +24,7 @@ export default function Cabinet() {
   const handleMeterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert('Показания успешно отправлены!');
-    setMeterReadings({ coldWater: '', hotWater: '', electricity: '', address: '', phone: '' });
+    setMeterReadings({ electricity: '', address: '', phone: '' });
   };
 
   const handleRequestSubmit = (e: React.FormEvent) => {
@@ -63,57 +61,21 @@ export default function Cabinet() {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleMeterSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-3 gap-6">
-                    <div>
-                      <Label htmlFor="coldWater" className="flex items-center gap-2 mb-2">
-                        <Icon name="Droplet" size={16} className="text-blue-500" />
-                        Холодная вода (м³)
-                      </Label>
-                      <Input
-                        id="coldWater"
-                        type="number"
-                        step="0.001"
-                        placeholder="123.456"
-                        value={meterReadings.coldWater}
-                        onChange={(e) => setMeterReadings(prev => ({ ...prev, coldWater: e.target.value }))}
-                        className="h-12"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <Label htmlFor="hotWater" className="flex items-center gap-2 mb-2">
-                        <Icon name="Droplet" size={16} className="text-red-500" />
-                        Горячая вода (м³)
-                      </Label>
-                      <Input
-                        id="hotWater"
-                        type="number"
-                        step="0.001"
-                        placeholder="78.901"
-                        value={meterReadings.hotWater}
-                        onChange={(e) => setMeterReadings(prev => ({ ...prev, hotWater: e.target.value }))}
-                        className="h-12"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <Label htmlFor="electricity" className="flex items-center gap-2 mb-2">
-                        <Icon name="Zap" size={16} className="text-yellow-500" />
-                        Электроэнергия (кВт·ч)
-                      </Label>
-                      <Input
-                        id="electricity"
-                        type="number"
-                        step="1"
-                        placeholder="5432"
-                        value={meterReadings.electricity}
-                        onChange={(e) => setMeterReadings(prev => ({ ...prev, electricity: e.target.value }))}
-                        className="h-12"
-                        required
-                      />
-                    </div>
+                  <div>
+                    <Label htmlFor="electricity" className="flex items-center gap-2 mb-2">
+                      <Icon name="Zap" size={16} className="text-yellow-500" />
+                      Показания электроэнергии (кВт·ч)
+                    </Label>
+                    <Input
+                      id="electricity"
+                      type="number"
+                      step="1"
+                      placeholder="5432"
+                      value={meterReadings.electricity}
+                      onChange={(e) => setMeterReadings(prev => ({ ...prev, electricity: e.target.value }))}
+                      className="h-12"
+                      required
+                    />
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
