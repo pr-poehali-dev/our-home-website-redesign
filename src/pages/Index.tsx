@@ -210,8 +210,8 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100/50 shadow-sm">
+    <div className="min-h-screen bg-background">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-border shadow-lg">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActiveSection('home')}>
