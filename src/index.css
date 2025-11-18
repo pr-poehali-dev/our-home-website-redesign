@@ -93,7 +93,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: "Playfair Display", serif;
-    font-style: italic;
+    font-style: normal;
   }
 
   h1,
@@ -106,5 +106,18 @@
     font-weight: 700;
     font-style: italic;
     letter-spacing: 0.01em;
+  }
+
+  .decorative-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .decorative-dot {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
   }
 }

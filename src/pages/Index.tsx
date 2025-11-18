@@ -58,6 +58,10 @@ export default function Index() {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/10 to-transparent"></div>
               <div className="absolute top-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-10 left-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl"></div>
+              <div className="absolute top-40 right-1/4 w-3 h-3 bg-primary/30 rounded-full"></div>
+              <div className="absolute top-60 right-1/3 w-2 h-2 bg-accent/40 rounded-full"></div>
+              <div className="absolute bottom-40 left-1/4 w-4 h-4 bg-primary/20 rounded-full"></div>
+              <div className="absolute top-1/2 right-20 w-2 h-2 bg-accent/30 rounded-full"></div>
               <div className="max-w-7xl mx-auto relative z-10">
                 <div className="max-w-3xl animate-fade-in">
                   <h2 className="text-6xl md:text-7xl font-bold text-secondary mb-6 leading-[1.1] tracking-tight">
@@ -78,9 +82,13 @@ export default function Index() {
               </div>
             </section>
 
-            <section className="py-16 px-6">
+            <section className="py-16 px-6 relative">
+              <div className="absolute top-10 left-10 w-32 h-32 border-2 border-primary/10 rounded-full"></div>
+              <div className="absolute bottom-10 right-10 w-24 h-24 border-2 border-accent/10 rounded-full"></div>
               <div className="max-w-7xl mx-auto">
-                <Card className="border-2 border-orange-200 shadow-lg bg-gradient-to-br from-orange-50 to-red-50">
+                <Card className="border-2 border-orange-200 shadow-lg bg-gradient-to-br from-orange-50 to-red-50 relative overflow-hidden">
+                  <div className="absolute -top-10 -right-10 w-40 h-40 bg-orange-200/20 rounded-full"></div>
+                  <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-red-200/20 rounded-full"></div>
                   <CardContent className="p-8">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                       <div className="flex items-center gap-4">
@@ -104,9 +112,13 @@ export default function Index() {
               </div>
             </section>
 
-            <section className="py-24 px-6">
+            <section className="py-24 px-6 relative">
+              <div className="absolute top-20 left-1/4 w-2 h-2 bg-primary/20 rounded-full"></div>
+              <div className="absolute bottom-20 right-1/4 w-3 h-3 bg-accent/20 rounded-full"></div>
               <div className="max-w-7xl mx-auto">
-                <Card className="border-2 border-primary/20 shadow-xl bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl">
+                <Card className="border-2 border-primary/20 shadow-xl bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-2xl"></div>
+                  <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent/5 rounded-full blur-2xl"></div>
                   <CardContent className="p-12">
                     <div className="text-center mb-16">
                       <h2 className="text-5xl font-bold text-secondary mb-4">Почему выбирают нас</h2>
@@ -149,9 +161,13 @@ export default function Index() {
               </div>
             </section>
 
-            <section className="py-24 px-6">
+            <section className="py-24 px-6 relative">
+              <div className="absolute top-1/2 left-10 w-20 h-20 border border-secondary/10 rounded-lg rotate-12"></div>
+              <div className="absolute bottom-1/3 right-20 w-16 h-16 border border-primary/10 rounded-lg -rotate-12"></div>
               <div className="max-w-7xl mx-auto">
-                <Card className="border-2 border-secondary/20 shadow-xl bg-gradient-to-br from-secondary/5 to-primary/5 rounded-3xl">
+                <Card className="border-2 border-secondary/20 shadow-xl bg-gradient-to-br from-secondary/5 to-primary/5 rounded-3xl relative overflow-hidden">
+                  <div className="absolute -top-20 -left-20 w-64 h-64 bg-secondary/5 rounded-full blur-3xl"></div>
+                  <div className="absolute -bottom-20 -right-20 w-56 h-56 bg-primary/5 rounded-full blur-3xl"></div>
                   <CardContent className="p-12">
                     <div className="text-center mb-16">
                       <h2 className="text-5xl font-bold text-secondary mb-4">Последние новости</h2>
