@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import Icon from '@/components/ui/icon';
 
 export default function News() {
+  const [activeCategory, setActiveCategory] = useState('all');
   const news = [
     {
       id: 1,
@@ -59,24 +63,102 @@ export default function News() {
           <p className="text-lg text-muted-foreground mt-6">Актуальная информация для жильцов</p>
         </div>
 
-        <div className="space-y-6">
-          {news.map((item) => (
-            <Card key={item.id} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardHeader>
-                <div className="flex items-center justify-between mb-3">
-                  <Badge variant={item.category === 'important' ? 'destructive' : 'secondary'} className="text-sm">
-                    {getCategoryLabel(item.category)}
-                  </Badge>
-                  <span className="text-sm text-muted-foreground">{item.date}</span>
-                </div>
-                <CardTitle className="text-2xl">{item.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">{item.content}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <Tabs defaultValue="all" className="w-full" onValueChange={setActiveCategory}>
+          <TabsList className="grid w-full grid-cols-4 mb-8 h-auto">
+            <TabsTrigger value="all" className="text-sm md:text-base py-3">
+              <Icon name="Newspaper" size={18} className="mr-2" />
+              Все новости
+            </TabsTrigger>
+            <TabsTrigger value="important" className="text-sm md:text-base py-3">
+              <Icon name="AlertCircle" size={18} className="mr-2" />
+              Важные
+            </TabsTrigger>
+            <TabsTrigger value="meeting" className="text-sm md:text-base py-3">
+              <Icon name="Users" size={18} className="mr-2" />
+              Собрания
+            </TabsTrigger>
+            <TabsTrigger value="news" className="text-sm md:text-base py-3">
+              <Icon name="Info" size={18} className="mr-2" />
+              Объявления
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="all" className="space-y-6">
+            {news.map((item) => (
+              <Card key={item.id} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-3">
+                    <Badge variant={item.category === 'important' ? 'destructive' : 'secondary'} className="text-sm">
+                      {getCategoryLabel(item.category)}
+                    </Badge>
+                    <span className="text-sm text-muted-foreground">{item.date}</span>
+                  </div>
+                  <CardTitle className="text-2xl">{item.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground leading-relaxed">{item.content}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </TabsContent>
+
+          <TabsContent value="important" className="space-y-6">
+            {news.filter(item => item.category === 'important').map((item) => (
+              <Card key={item.id} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-3">
+                    <Badge variant="destructive" className="text-sm">
+                      {getCategoryLabel(item.category)}
+                    </Badge>
+                    <span className="text-sm text-muted-foreground">{item.date}</span>
+                  </div>
+                  <CardTitle className="text-2xl">{item.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground leading-relaxed">{item.content}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </TabsContent>
+
+          <TabsContent value="meeting" className="space-y-6">
+            {news.filter(item => item.category === 'meeting').map((item) => (
+              <Card key={item.id} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-3">
+                    <Badge variant="secondary" className="text-sm">
+                      {getCategoryLabel(item.category)}
+                    </Badge>
+                    <span className="text-sm text-muted-foreground">{item.date}</span>
+                  </div>
+                  <CardTitle className="text-2xl">{item.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground leading-relaxed">{item.content}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </TabsContent>
+
+          <TabsContent value="news" className="space-y-6">
+            {news.filter(item => item.category === 'news').map((item) => (
+              <Card key={item.id} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-3">
+                    <Badge variant="secondary" className="text-sm">
+                      {getCategoryLabel(item.category)}
+                    </Badge>
+                    <span className="text-sm text-muted-foreground">{item.date}</span>
+                  </div>
+                  <CardTitle className="text-2xl">{item.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground leading-relaxed">{item.content}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </TabsContent>
+        </Tabs>
       </div>
     </section>
   );
