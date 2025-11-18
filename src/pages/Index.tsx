@@ -54,20 +54,23 @@ export default function Index() {
       default:
         return (
           <>
-            <section className="pt-32 pb-20 px-6">
-              <div className="max-w-7xl mx-auto">
-                <div className="max-w-3xl">
-                  <h2 className="text-6xl md:text-7xl font-bold text-secondary mb-6 leading-tight">
+            <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/10 to-transparent"></div>
+              <div className="absolute top-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-10 left-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl"></div>
+              <div className="max-w-7xl mx-auto relative z-10">
+                <div className="max-w-3xl animate-fade-in">
+                  <h2 className="text-6xl md:text-7xl font-bold text-secondary mb-6 leading-[1.1] tracking-tight">
                     Комфорт<br />вашего дома
                   </h2>
                   <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
                     Профессиональное управление недвижимостью.<br />Прозрачно. Надёжно. Современно.
                   </p>
                   <div className="flex flex-wrap gap-4">
-                    <Button size="lg" className="text-base px-8" onClick={() => setActiveSection('cabinet')}>
+                    <Button size="lg" className="text-base px-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105" onClick={() => setActiveSection('cabinet')}>
                       Личный кабинет
                     </Button>
-                    <Button size="lg" variant="outline" className="text-base px-8" onClick={() => setActiveSection('about')}>
+                    <Button size="lg" variant="outline" className="text-base px-8 hover:bg-primary/5 transition-all duration-300" onClick={() => setActiveSection('about')}>
                       О компании
                     </Button>
                   </div>
@@ -105,32 +108,32 @@ export default function Index() {
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8">
-                  <Card className="border-0 shadow-lg text-center hover:shadow-xl transition-shadow">
+                  <Card className="border-0 shadow-lg text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
                     <CardContent className="pt-8 pb-8">
-                      <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                         <Icon name="Award" className="text-primary" size={32} />
                       </div>
-                      <h3 className="text-2xl font-bold mb-2">20+ лет</h3>
+                      <h3 className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">20+ лет</h3>
                       <p className="text-muted-foreground">на рынке жилищно-коммунальных услуг</p>
                     </CardContent>
                   </Card>
 
-                  <Card className="border-0 shadow-lg text-center hover:shadow-xl transition-shadow">
+                  <Card className="border-0 shadow-lg text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
                     <CardContent className="pt-8 pb-8">
-                      <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                         <Icon name="Building2" className="text-primary" size={32} />
                       </div>
-                      <h3 className="text-2xl font-bold mb-2">150+ домов</h3>
+                      <h3 className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">150+ домов</h3>
                       <p className="text-muted-foreground">находятся под нашим управлением</p>
                     </CardContent>
                   </Card>
 
-                  <Card className="border-0 shadow-lg text-center hover:shadow-xl transition-shadow">
+                  <Card className="border-0 shadow-lg text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
                     <CardContent className="pt-8 pb-8">
-                      <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                         <Icon name="Users" className="text-primary" size={32} />
                       </div>
-                      <h3 className="text-2xl font-bold mb-2">50 000+</h3>
+                      <h3 className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">50 000+</h3>
                       <p className="text-muted-foreground">довольных жильцов</p>
                     </CardContent>
                   </Card>
@@ -147,17 +150,17 @@ export default function Index() {
 
                 <div className="grid md:grid-cols-3 gap-6">
                   {newsPreview.map((item) => (
-                    <Card key={item.id} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+                    <Card key={item.id} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group overflow-hidden">
                       <CardContent className="pt-6">
                         <div className="flex items-center justify-between mb-3">
-                          <Badge variant={item.category === 'important' ? 'destructive' : 'secondary'}>
+                          <Badge variant={item.category === 'important' ? 'destructive' : 'secondary'} className="font-medium">
                             {item.category === 'important' ? 'Важно!' : item.category === 'meeting' ? 'Собрание' : 'Новость'}
                           </Badge>
-                          <span className="text-xs text-muted-foreground">{item.date}</span>
+                          <span className="text-xs text-muted-foreground font-medium">{item.date}</span>
                         </div>
-                        <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                        <p className="text-muted-foreground mb-4">{item.excerpt}</p>
-                        <Button variant="link" className="p-0 h-auto" onClick={() => setActiveSection('news')}>
+                        <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{item.title}</h3>
+                        <p className="text-muted-foreground mb-4 line-clamp-3">{item.excerpt}</p>
+                        <Button variant="link" className="p-0 h-auto group-hover:translate-x-1 transition-transform" onClick={() => setActiveSection('news')}>
                           Читать далее
                           <Icon name="ArrowRight" size={16} className="ml-1" />
                         </Button>
@@ -180,7 +183,7 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-white">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100/50 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActiveSection('home')}>
