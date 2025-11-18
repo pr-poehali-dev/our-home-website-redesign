@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Input } from '@/components/ui/input';
 import Icon from '@/components/ui/icon';
 
 export default function News() {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
   const news = [
     {
       id: 1,
@@ -52,6 +54,14 @@ export default function News() {
     }
   };
 
+  const filterNews = (newsItems: typeof news) => {
+    if (!searchQuery) return newsItems;
+    return newsItems.filter(item => 
+      item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.content.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  };
+
   return (
     <section className="pt-32 pb-24 px-6">
       <div className="max-w-7xl mx-auto">
@@ -61,6 +71,19 @@ export default function News() {
             <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-accent via-primary to-secondary rounded-full"></div>
           </div>
           <p className="text-lg text-muted-foreground mt-6">Актуальная информация для жильцов</p>
+        </div>
+
+        <div className="mb-8 max-w-xl mx-auto">
+          <div className="relative">
+            <Icon name="Search" className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
+            <Input
+              type="text"
+              placeholder="Поиск по новостям..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-12 h-14 text-base"
+            />
+          </div>
         </div>
 
         <Tabs defaultValue="all" className="w-full" onValueChange={setActiveCategory}>
@@ -84,7 +107,14 @@ export default function News() {
           </TabsList>
 
           <TabsContent value="all" className="space-y-6">
-            {news.map((item) => (
+            {filterNews(news).length === 0 ? (
+              <Card className="border-0 shadow-lg">
+                <CardContent className="pt-12 pb-12 text-center">
+                  <Icon name="Search" className="mx-auto mb-4 text-muted-foreground" size={48} />
+                  <p className="text-lg text-muted-foreground">Ничего не найдено по вашему запросу</p>
+                </CardContent>
+              </Card>
+            ) : filterNews(news).map((item) => (
               <Card key={item.id} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
                 <CardHeader>
                   <div className="flex items-center justify-between mb-3">
@@ -103,7 +133,14 @@ export default function News() {
           </TabsContent>
 
           <TabsContent value="important" className="space-y-6">
-            {news.filter(item => item.category === 'important').map((item) => (
+            {filterNews(news.filter(item => item.category === 'important')).length === 0 ? (
+              <Card className="border-0 shadow-lg">
+                <CardContent className="pt-12 pb-12 text-center">
+                  <Icon name="Search" className="mx-auto mb-4 text-muted-foreground" size={48} />
+                  <p className="text-lg text-muted-foreground">Ничего не найдено по вашему запросу</p>
+                </CardContent>
+              </Card>
+            ) : filterNews(news.filter(item => item.category === 'important')).map((item) => (
               <Card key={item.id} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
                 <CardHeader>
                   <div className="flex items-center justify-between mb-3">
@@ -122,7 +159,14 @@ export default function News() {
           </TabsContent>
 
           <TabsContent value="meeting" className="space-y-6">
-            {news.filter(item => item.category === 'meeting').map((item) => (
+            {filterNews(news.filter(item => item.category === 'meeting')).length === 0 ? (
+              <Card className="border-0 shadow-lg">
+                <CardContent className="pt-12 pb-12 text-center">
+                  <Icon name="Search" className="mx-auto mb-4 text-muted-foreground" size={48} />
+                  <p className="text-lg text-muted-foreground">Ничего не найдено по вашему запросу</p>
+                </CardContent>
+              </Card>
+            ) : filterNews(news.filter(item => item.category === 'meeting')).map((item) => (
               <Card key={item.id} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
                 <CardHeader>
                   <div className="flex items-center justify-between mb-3">
@@ -141,7 +185,14 @@ export default function News() {
           </TabsContent>
 
           <TabsContent value="news" className="space-y-6">
-            {news.filter(item => item.category === 'news').map((item) => (
+            {filterNews(news.filter(item => item.category === 'news')).length === 0 ? (
+              <Card className="border-0 shadow-lg">
+                <CardContent className="pt-12 pb-12 text-center">
+                  <Icon name="Search" className="mx-auto mb-4 text-muted-foreground" size={48} />
+                  <p className="text-lg text-muted-foreground">Ничего не найдено по вашему запросу</p>
+                </CardContent>
+              </Card>
+            ) : filterNews(news.filter(item => item.category === 'news')).map((item) => (
               <Card key={item.id} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
                 <CardHeader>
                   <div className="flex items-center justify-between mb-3">
