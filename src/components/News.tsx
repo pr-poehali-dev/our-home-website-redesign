@@ -52,8 +52,11 @@ export default function News() {
     <section className="pt-32 pb-24 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-secondary mb-4">Новости и объявления</h2>
-          <p className="text-lg text-muted-foreground">Актуальная информация для жильцов</p>
+          <div className="inline-block relative">
+            <h2 className="text-6xl font-bold mb-4 bg-gradient-to-r from-accent via-primary to-secondary bg-clip-text text-transparent drop-shadow-sm">Новости и объявления</h2>
+            <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-accent via-primary to-secondary rounded-full"></div>
+          </div>
+          <p className="text-lg text-muted-foreground mt-6">Актуальная информация для жильцов</p>
         </div>
 
         <div className="space-y-6">

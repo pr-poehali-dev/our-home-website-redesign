@@ -42,8 +42,11 @@ export default function Cabinet() {
           <div className="w-20 h-20 bg-primary/10 rounded-3xl flex items-center justify-center mx-auto mb-6">
             <Icon name="User" className="text-primary" size={40} />
           </div>
-          <h2 className="text-5xl font-bold text-secondary mb-4">Личный кабинет</h2>
-          <p className="text-lg text-muted-foreground">Управляйте услугами онлайн</p>
+          <div className="inline-block relative">
+            <h2 className="text-6xl font-bold mb-4 bg-gradient-to-r from-secondary via-accent to-primary bg-clip-text text-transparent drop-shadow-sm">Личный кабинет</h2>
+            <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-secondary via-accent to-primary rounded-full"></div>
+          </div>
+          <p className="text-lg text-muted-foreground mt-6">Управляйте услугами онлайн</p>
         </div>
 
         <Tabs defaultValue="meters" className="w-full">

@@ -121,8 +121,11 @@ export default function Index() {
                   <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent/5 rounded-full blur-2xl"></div>
                   <CardContent className="p-12">
                     <div className="text-center mb-16">
-                      <h2 className="text-5xl font-bold text-secondary mb-4">Почему выбирают нас</h2>
-                      <p className="text-lg text-muted-foreground">Более 20 лет заботимся о вашем комфорте</p>
+                      <div className="inline-block relative">
+                        <h2 className="text-6xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent drop-shadow-sm">Почему выбирают нас</h2>
+                        <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-secondary rounded-full"></div>
+                      </div>
+                      <p className="text-lg text-muted-foreground mt-6">Более 20 лет заботимся о вашем комфорте</p>
                     </div>
 
                 <div className="grid md:grid-cols-3 gap-8">
@@ -170,8 +173,11 @@ export default function Index() {
                   <div className="absolute -bottom-20 -right-20 w-56 h-56 bg-primary/5 rounded-full blur-3xl"></div>
                   <CardContent className="p-12">
                     <div className="text-center mb-16">
-                      <h2 className="text-5xl font-bold text-secondary mb-4">Последние новости</h2>
-                      <p className="text-lg text-muted-foreground">Будьте в курсе важных событий</p>
+                      <div className="inline-block relative">
+                        <h2 className="text-6xl font-bold mb-4 bg-gradient-to-r from-secondary via-primary to-accent bg-clip-text text-transparent drop-shadow-sm">Последние новости</h2>
+                        <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-secondary via-primary to-accent rounded-full"></div>
+                      </div>
+                      <p className="text-lg text-muted-foreground mt-6">Будьте в курсе важных событий</p>
                     </div>
 
                 <div className="grid md:grid-cols-3 gap-6">

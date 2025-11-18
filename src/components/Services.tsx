@@ -56,8 +56,11 @@ export default function Services({ onNavigate }: ServicesProps) {
     <section className="pt-32 pb-24 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-secondary mb-4">Наши услуги</h2>
-          <p className="text-lg text-muted-foreground">Полный комплекс услуг по управлению многоквартирными домами</p>
+          <div className="inline-block relative">
+            <h2 className="text-6xl font-bold mb-4 bg-gradient-to-r from-secondary via-primary to-accent bg-clip-text text-transparent drop-shadow-sm">Наши услуги</h2>
+            <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-secondary via-primary to-accent rounded-full"></div>
+          </div>
+          <p className="text-lg text-muted-foreground mt-6">Полный комплекс услуг по управлению многоквартирными домами</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
