@@ -106,10 +106,12 @@ export default function Index() {
 
             <section className="py-24 px-6">
               <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-16">
-                  <h2 className="text-5xl font-bold text-secondary mb-4">Почему выбирают нас</h2>
-                  <p className="text-lg text-muted-foreground">Более 20 лет заботимся о вашем комфорте</p>
-                </div>
+                <Card className="border-2 border-primary/20 shadow-xl bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl">
+                  <CardContent className="p-12">
+                    <div className="text-center mb-16">
+                      <h2 className="text-5xl font-bold text-secondary mb-4">Почему выбирают нас</h2>
+                      <p className="text-lg text-muted-foreground">Более 20 лет заботимся о вашем комфорте</p>
+                    </div>
 
                 <div className="grid md:grid-cols-3 gap-8">
                   <Card className="border-0 shadow-lg text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
@@ -141,16 +143,20 @@ export default function Index() {
                       <p className="text-muted-foreground">довольных жильцов</p>
                     </CardContent>
                   </Card>
-                </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
             </section>
 
-            <section className="py-24 px-6 bg-muted">
+            <section className="py-24 px-6">
               <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-16">
-                  <h2 className="text-5xl font-bold text-secondary mb-4">Последние новости</h2>
-                  <p className="text-lg text-muted-foreground">Будьте в курсе важных событий</p>
-                </div>
+                <Card className="border-2 border-secondary/20 shadow-xl bg-gradient-to-br from-secondary/5 to-primary/5 rounded-3xl">
+                  <CardContent className="p-12">
+                    <div className="text-center mb-16">
+                      <h2 className="text-5xl font-bold text-secondary mb-4">Последние новости</h2>
+                      <p className="text-lg text-muted-foreground">Будьте в курсе важных событий</p>
+                    </div>
 
                 <div className="grid md:grid-cols-3 gap-6">
                   {newsPreview.map((item) => (
@@ -173,11 +179,13 @@ export default function Index() {
                   ))}
                 </div>
 
-                <div className="text-center mt-8">
-                  <Button size="lg" variant="outline" onClick={() => setActiveSection('news')}>
-                    Все новости
-                  </Button>
-                </div>
+                    <div className="text-center mt-8">
+                      <Button size="lg" variant="outline" onClick={() => setActiveSection('news')}>
+                        Все новости
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
             </section>
           </>
