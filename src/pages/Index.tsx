@@ -78,25 +78,29 @@ export default function Index() {
               </div>
             </section>
 
-            <section className="py-12 px-6 bg-destructive">
+            <section className="py-16 px-6">
               <div className="max-w-7xl mx-auto">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center">
-                      <Icon name="AlertTriangle" className="text-destructive" size={32} />
+                <Card className="border-2 border-orange-200 shadow-lg bg-gradient-to-br from-orange-50 to-red-50">
+                  <CardContent className="p-8">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                      <div className="flex items-center gap-4">
+                        <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center">
+                          <Icon name="Phone" className="text-orange-600" size={32} />
+                        </div>
+                        <div>
+                          <h3 className="text-2xl font-bold text-orange-900 mb-1">Аварийная служба</h3>
+                          <p className="text-orange-700">Круглосуточно, без выходных</p>
+                        </div>
+                      </div>
+                      <a 
+                        href="tel:+78121234567" 
+                        className="text-4xl font-bold text-orange-600 hover:text-orange-700 transition-colors"
+                      >
+                        +7 (812) 123-45-67
+                      </a>
                     </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-white mb-1">Аварийная служба</h3>
-                      <p className="text-white/80">Круглосуточно, без выходных</p>
-                    </div>
-                  </div>
-                  <a 
-                    href="tel:+78121234567" 
-                    className="text-4xl font-bold text-white hover:text-white/90 transition-colors"
-                  >
-                    +7 (812) 123-45-67
-                  </a>
-                </div>
+                  </CardContent>
+                </Card>
               </div>
             </section>
 
