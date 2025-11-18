@@ -184,9 +184,11 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActiveSection('home')}>
-              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-                <Icon name="Building2" className="text-white" size={22} />
-              </div>
+              <img 
+                src="https://cdn.poehali.dev/files/9281896f-fd52-4945-80f9-4839e40da7e7.png" 
+                alt="НАШ ДОМ" 
+                className="h-12 w-auto object-contain"
+              />
               <div>
                 <h1 className="text-xl font-bold text-secondary">НАШ ДОМ</h1>
                 <p className="text-xs text-muted-foreground">Управляющая компания</p>
@@ -212,9 +214,11 @@ export default function Index() {
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-                  <Icon name="Building2" className="text-white" size={22} />
-                </div>
+                <img 
+                  src="https://cdn.poehali.dev/files/9281896f-fd52-4945-80f9-4839e40da7e7.png" 
+                  alt="НАШ ДОМ" 
+                  className="h-10 w-auto object-contain brightness-0 invert"
+                />
                 <h3 className="text-xl font-bold">НАШ ДОМ</h3>
               </div>
               <p className="text-white/70 leading-relaxed">
