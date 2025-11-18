@@ -1,14 +1,6 @@
-import { Card, CardContent } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 
 export default function About() {
-  const team = [
-    { name: 'Иванов Сергей Петрович', position: 'Генеральный директор', icon: 'User' },
-    { name: 'Смирнова Елена Викторовна', position: 'Главный бухгалтер', icon: 'Calculator' },
-    { name: 'Петров Алексей Николаевич', position: 'Главный инженер', icon: 'Wrench' },
-    { name: 'Кузнецова Мария Ивановна', position: 'Руководитель клиентского отдела', icon: 'Users' }
-  ];
-
   return (
     <section className="pt-32 pb-24 px-6">
       <div className="max-w-7xl mx-auto">
@@ -53,26 +45,6 @@ export default function About() {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="text-center mb-12">
-          <div className="inline-block relative">
-            <h3 className="text-4xl font-bold mb-4 bg-gradient-to-r from-secondary via-primary to-accent bg-clip-text text-transparent drop-shadow-sm">Наша команда</h3>
-            <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-secondary via-primary to-accent rounded-full"></div>
-          </div>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {team.map((member, idx) => (
-            <Card key={idx} className="border-0 shadow-lg text-center hover:shadow-xl transition-shadow">
-              <CardContent className="pt-8 pb-6">
-                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon name={member.icon} className="text-primary" size={32} />
-                </div>
-                <h4 className="font-bold mb-1">{member.name}</h4>
-                <p className="text-sm text-muted-foreground">{member.position}</p>
-              </CardContent>
-            </Card>
-          ))}
         </div>
 
         <div className="mt-16 p-8 bg-muted rounded-2xl">
