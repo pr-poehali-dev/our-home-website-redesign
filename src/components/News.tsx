@@ -3,11 +3,13 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 export default function News() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [sortOrder, setSortOrder] = useState<'desc' | 'asc'>('desc');
   const news = [
     {
       id: 1,
@@ -54,12 +56,35 @@ export default function News() {
     }
   };
 
+  const parseDate = (dateStr: string) => {
+    const months: { [key: string]: number } = {
+      'января': 0, 'февраля': 1, 'марта': 2, 'апреля': 3, 'мая': 4, 'июня': 5,
+      'июля': 6, 'августа': 7, 'сентября': 8, 'октября': 9, 'ноября': 10, 'декабря': 11
+    };
+    const parts = dateStr.split(' ');
+    const day = parseInt(parts[0]);
+    const month = months[parts[1]];
+    const year = parseInt(parts[2]);
+    return new Date(year, month, day);
+  };
+
+  const sortNews = (newsItems: typeof news) => {
+    return [...newsItems].sort((a, b) => {
+      const dateA = parseDate(a.date).getTime();
+      const dateB = parseDate(b.date).getTime();
+      return sortOrder === 'desc' ? dateB - dateA : dateA - dateB;
+    });
+  };
+
   const filterNews = (newsItems: typeof news) => {
-    if (!searchQuery) return newsItems;
-    return newsItems.filter(item => 
-      item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.content.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    let filtered = newsItems;
+    if (searchQuery) {
+      filtered = newsItems.filter(item => 
+        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.content.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+    return sortNews(filtered);
   };
 
   return (
@@ -73,16 +98,27 @@ export default function News() {
           <p className="text-lg text-muted-foreground mt-6">Актуальная информация для жильцов</p>
         </div>
 
-        <div className="mb-8 max-w-xl mx-auto">
-          <div className="relative">
-            <Icon name="Search" className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
-            <Input
-              type="text"
-              placeholder="Поиск по новостям..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-12 h-14 text-base"
-            />
+        <div className="mb-8 max-w-3xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="relative flex-1">
+              <Icon name="Search" className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
+              <Input
+                type="text"
+                placeholder="Поиск по новостям..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-12 h-14 text-base"
+              />
+            </div>
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => setSortOrder(prev => prev === 'desc' ? 'asc' : 'desc')}
+              className="h-14 px-6 whitespace-nowrap"
+            >
+              <Icon name={sortOrder === 'desc' ? 'ArrowDownWideNarrow' : 'ArrowUpNarrowWide'} size={20} className="mr-2" />
+              {sortOrder === 'desc' ? 'Сначала новые' : 'Сначала старые'}
+            </Button>
           </div>
         </div>
 
